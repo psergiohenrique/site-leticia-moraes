@@ -9,7 +9,7 @@ export default function Servicos() {
           <h2>
             Como podemos
             <br />
-            trabalhar juntas.
+            trabalhar juntos.
           </h2>
         </RevealWrapper>
 
@@ -18,26 +18,38 @@ export default function Servicos() {
             <div className="servico-mark" aria-hidden="true" />
             <h3>Design de interiores residencial</h3>
             <p>
-              Projeto completo — do briefing à chave na mão. Layout,
-              marcenaria sob medida, paleta de materiais, iluminação,
-              renders fotorrealistas e curadoria de objetos.
+              Desenvolvo projetos de interiores residenciais personalizados,
+              pensados para traduzir a rotina, as necessidades e a identidade de
+              cada morador em espaços funcionais, acolhedores e conectados à
+              natureza. <br></br>Cada projeto é conduzido em etapas, permitindo
+              decisões mais seguras e um desenvolvimento cuidadoso de cada
+              ambiente.
             </p>
             <ul className="servico-list">
-              <li>Plantas humanizadas e técnicas</li>
-              <li>Marcenaria, iluminação e revestimentos</li>
-              <li>Renders 3D realistas</li>
-              <li>Acompanhamento de obra semanal</li>
-              <li>Curadoria final de objetos e plantas</li>
+              <li>Reunião de briefing e levantamento de necessidades</li>
+              <li>Estudo das melhores soluções de layout </li>
+              <li>Definição de materiais, revestimentos, cores e iluminação</li>
+              <li>Projeto de marcenaria sob medida</li>
+              <li>Imagens realistas para a visualização do seu novo lar</li>
+              <li>Projeto executivo com detalhamentos técnicos para a obras</li>
+              <li>
+                Imagens renderizadas para melhor compreensão do resultado final
+              </li>
+              <li>Suporte e acompanhamento durante a execução da obra</li>
             </ul>
           </RevealWrapper>
 
-          <RevealWrapper as="article" className="servico-card">
+          <RevealWrapper as="article" className="servico-card featured">
             <div className="servico-mark" aria-hidden="true" />
             <h3>Consultoria à distância</h3>
             <p>
-              Para quem mora longe ou quer um olhar profissional sem o
-              projeto completo. Três encontros online para resolver os
-              ambientes que mais pesam na sua casa.
+              Nem toda transformação exige um projeto completo. Às vezes, alguns
+              ajustes bem direcionados já são suficientes para que um ambiente
+              funcione melhor e reflita mais quem você é. O processo acontece em
+              dois encontros: o primeiro dedicado à compreensão das suas
+              necessidades, rotina e objetivos para o espaço, e o segundo para a
+              apresentação das propostas e orientações necessárias para a
+              implementação.
             </p>
             <ul className="servico-list">
               <li>Análise dos ambientes por vídeo</li>

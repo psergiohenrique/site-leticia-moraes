@@ -16,25 +16,43 @@ export default function Hero() {
             </h1>
 
             <p className="hero-tag">
-              Projetos de interiores residenciais e consultorias com olhar
-              biofílico — luz natural, materiais honestos e o ritmo de quem
-              mora ali. Cada lar com a sua própria respiração.
+              Projetos de interiores pensados para além da estética. Cada
+              ambiente é desenhado para refletir a personalidade, os hábitos e
+              as necessidades de quem vive ali, criando espaços que favorecem o
+              bem-estar e a conexão com a natureza.
             </p>
 
             <div className="hero-cta-row">
               <a href="#contato" className="btn btn-primary">
                 Começar um projeto
-                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
-                  <path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                <svg
+                  width="14"
+                  height="10"
+                  viewBox="0 0 14 10"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M0 5h12M8 1l4 4-4 4"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </a>
-              <a href="#projetos" className="btn btn-ghost">Ver projetos</a>
+              <a href="#projetos" className="btn btn-ghost">
+                Ver projetos
+              </a>
             </div>
 
             <div className="hero-meta">
-              <div><b>8</b>anos de estúdio</div>
-              <div><b>40+</b>projetos entregues</div>
-              <div><b>13</b>cidades atendidas</div>
+              <div>
+                <b>5</b>anos de estúdio
+              </div>
+              <div>
+                <b>+ 60</b>clientes atendidos
+              </div>
             </div>
           </div>
 
@@ -49,13 +67,23 @@ export default function Hero() {
             />
             <figcaption className="stamp">
               <span>Talita &amp; Lugano · 2024</span>
-              <Image src="/assets/submark-positiva.png" alt="" width={64} height={64} />
+              <Image
+                src="/assets/submark-positiva.png"
+                alt=""
+                width={64}
+                height={64}
+              />
             </figcaption>
           </figure>
         </div>
 
         <div className="hero-marquee">
-          {["residencial", "consultoria à distância", "design biofílico", "retrofit", "marcenaria autoral"].map((item) => (
+          {[
+            "residencial",
+            "consultoria",
+            "design biofílico",
+            "psicoarquitetura",
+          ].map((item) => (
             <span key={item}>
               <i className="dot" />
               {item}

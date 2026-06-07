@@ -2,25 +2,25 @@ import RevealWrapper from "./RevealWrapper";
 
 const DEPOS = [
   {
-    initial: "T",
+    initial: "L&F",
     quote:
-      "A Letícia escuta de um jeito raro. Acertou em coisas que a gente nem sabia que queria — e a casa hoje funciona pra nós dois sem perder a beleza.",
-    name: "Talita & Lugano",
+      "Obrigada por todo apoio, Le!! Você está sendo impecável no nosso acompanhamento, mesmo a distância! Fazer nosso projeto com você foi uma decisão acertada. O projeto executivo trouxe muita precisão para os prestadores e também para os ajustes que precisamos fazer. Só agradecer!",
+    name: "Larissa & Felipe",
     label: "Residencial · Campinas",
   },
   {
-    initial: "L",
+    initial: "L&D",
     quote:
-      "Fizemos consultoria à distância e mesmo assim parecia que ela estava aqui. Cada material chegou exatamente como nos renders. Vale cada centavo.",
-    name: "Larissa & Felipe",
-    label: "Consultoria · Hortolândia",
+      "Lê, queremos te agradecer por toda a parceria ao longo desse processo. Propusemos alinhamentos e novas ideias, e em todas elas você esteve atenta aos detalhes, aberta a ouvir e sempre buscando o melhor resultado. Estamos apaixonados pelo projeto. Ele superou as expectativas e isso só foi possível graças ao seu cuidado, dedicação e olhar profissional. De verdade, muito obrigada por tornar essa etapa tão leve e especial.",
+    name: "Luana & Daniel",
+    label: "Residencial · Campinas",
   },
   {
-    initial: "M",
+    initial: "T&L",
     quote:
-      "Eu queria uma casa que respirasse e ela entregou exatamente isso. Cada canto tem uma planta, uma luz, um motivo. A casa ficou viva.",
-    name: "Murilo & Giuliana",
-    label: "Residencial · Vinhedo",
+      "Obrigado por toda ajuda, com todas as entregas e paciência ao longo do projeto. Com o material que nos forneceu a obra está caminhando sozinha e está tudo ficando do jeito que sonhamos! Então, mais uma vez, muito obrigado pelo apoio até o momento!",
+    name: "Thaís & Leonardo",
+    label: "Residencial · Campinas",
   },
 ];
 

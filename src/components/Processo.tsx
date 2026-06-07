@@ -2,24 +2,34 @@ import RevealWrapper from "./RevealWrapper";
 
 const STEPS = [
   {
-    num: "— 01 / 04",
+    num: "— 01 / 06",
     title: "Conversa inicial",
-    desc: "Uma chamada de 40 minutos para entender a sua rotina, os ambientes que pesam, o orçamento e o prazo. Sem compromisso.",
+    desc: "Nosso primeiro contato é um momento para nos conhecermos melhor. Você me conta sobre o imóvel, suas expectativas e o que busca transformar. Eu apresento minha forma de trabalho, esclareço dúvidas e explico como o projeto pode te ajudar.",
   },
   {
-    num: "— 02 / 04",
+    num: "— 02 / 06",
     title: "Diagnóstico & briefing",
-    desc: "Visita técnica, levantamento das medidas e referências de atmosfera. Saio com o briefing pronto e você com um pequeno mood board.",
+    desc: "Aqui mergulhamos na sua rotina, hábitos, necessidades e desejos para o novo espaço. Através do psicobriefing, buscamos compreender não apenas o que você precisa, mas também como deseja se sentir dentro da sua casa",
   },
   {
-    num: "— 03 / 04",
-    title: "Projeto & renders",
-    desc: "Plantas, marcenaria detalhada, paleta de materiais e renders fotorrealistas. Duas rodadas de ajustes — porque mudar de ideia é parte do processo.",
+    num: "— 03 / 06",
+    title: "Estudo de Layout",
+    desc: "Com base em tudo o que foi levantado, desenvolvo as melhores soluções para a distribuição dos ambientes. Essa etapa define fluxos, usos e aproveitamento dos espaços, criando a base estratégica de todo o projeto.",
   },
   {
-    num: "— 04 / 04",
-    title: "Obra & entrega",
-    desc: "Acompanho a execução com visitas semanais e canal direto com os fornecedores. Entrega da casa pronta, com curadoria de objetos inclusa.",
+    num: "— 04 / 06",
+    title: "Apresentação do projeto",
+    desc: "É o momento de visualizar a transformação do seu lar. Apresento o modelo 3D, os conceitos, materiais e soluções desenvolvidas, permitindo que você compreenda o projeto de forma clara antes da etapa executiva.",
+  },
+  {
+    num: "— 05 / 06",
+    title: "Projeto executivo e Lista de compras",
+    desc: "Após a aprovação, desenvolvo toda a documentação técnica necessária para a execução da obra. São plantas, detalhamentos e especificações que orientam fornecedores e profissionais envolvidos no processo.",
+  },
+  {
+    num: "— 06 / 06",
+    title: "Apresentação do projeto",
+    desc: "Durante a execução, ofereço suporte para esclarecer dúvidas e auxiliar na tomada de decisões. O objetivo é garantir que o resultado final mantenha a essência e as soluções previstas em projeto.",
   },
 ];
 

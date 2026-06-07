@@ -20,40 +20,30 @@ export default function Sobre() {
           <RevealWrapper className="about-copy">
             <p className="eyebrow">01 · Sobre</p>
             <h2>
-              Interiores como <em>cuidado</em> com quem mora.
+              Interiores <em>pensados </em>para quem vive neles.
             </h2>
 
             <p>
-              Sou a Letícia, designer de interiores há oito anos com
-              especialização em design biofílico. Acredito que desenhar
-              um interior é, antes de tudo, escutar — entender as rotinas,
-              os silêncios, e o que faz uma casa virar lar.
+              Muito prazer! Sou a Letícia Moraes, arquiteta especializada em
+              design biofílico. Acredito que um bom projeto começa muito antes
+              das escolhas estéticas: começa na escuta. Entender a rotina, os
+              hábitos e as necessidades de cada cliente é o que permite criar
+              espaços verdadeiramente personalizados.
             </p>
             <p>
-              Trabalho com poucos projetos por ano, sempre com proximidade.
-              Combino plantas técnicas, renders e visitas à obra com a
-              curadoria afetiva de objetos, tecidos e plantas que dá alma a
-              cada ambiente.
+              Meu trabalho busca equilibrar funcionalidade, sensações e conexão
+              com a natureza, traduzindo a essência de cada morador em ambientes
+              que promovem bem-estar e acolhimento no dia a dia.
             </p>
             <p>
-              Atendo Campinas e região, mas também faço consultorias remotas
-              para quem está longe e quer um olhar de projeto na sua casa.
+              Acompanho cada projeto de forma próxima e cuidadosa, desde as
+              primeiras definições de layout até os detalhes finais da execução,
+              garantindo que as ideias concebidas em projeto sejam traduzidas
+              com fidelidade para a realidade. Desenvolvo projetos residenciais
+              para clientes de diferentes localidades, de forma presencial ou
+              remota, sempre com suporte próximo e alinhamento contínuo ao longo
+              do processo.
             </p>
-
-            <div className="about-stats">
-              <div className="item">
-                <b>2018</b>
-                <span>Início do estúdio</span>
-              </div>
-              <div className="item">
-                <b>Pós</b>
-                <span>Design biofílico</span>
-              </div>
-              <div className="item">
-                <b>+40</b>
-                <span>Famílias atendidas</span>
-              </div>
-            </div>
           </RevealWrapper>
         </div>
       </div>

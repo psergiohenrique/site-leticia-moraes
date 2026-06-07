@@ -28,32 +28,59 @@ export default function Contato() {
             <div className="form-sent">
               <div className="leaf-icon" />
               <b>obrigada!</b>
-              <p>Sua mensagem chegou. Te respondo em até dois dias úteis — fica de olho no e-mail.</p>
+              <p>
+                Sua mensagem chegou. Te respondo em até dois dias úteis — fica
+                de olho no e-mail.
+              </p>
             </div>
           ) : (
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="row">
                 <div className="field">
-                  <label htmlFor="cf-nome">Seu nome</label>
-                  <input id="cf-nome" name="nome" type="text" placeholder="Como posso te chamar" required />
+                  <label htmlFor="cf-nome">Seu nome e sobrenome</label>
+                  <input
+                    id="cf-nome"
+                    name="nome"
+                    type="text"
+                    placeholder="Como posso te chamar"
+                    required
+                  />
                 </div>
                 <div className="field">
                   <label htmlFor="cf-cidade">Cidade</label>
-                  <input id="cf-cidade" name="cidade" type="text" placeholder="Onde fica o projeto" />
+                  <input
+                    id="cf-cidade"
+                    name="cidade"
+                    type="text"
+                    placeholder="Onde fica o projeto"
+                  />
                 </div>
               </div>
               <div className="row">
                 <div className="field">
-                  <label htmlFor="cf-email">E-mail</label>
-                  <input id="cf-email" name="email" type="email" placeholder="seuemail@exemplo.com" required />
+                  <label htmlFor="cf-email">Metragem quadrada</label>
+                  <input
+                    id="cf-metragem"
+                    name="metragem"
+                    type="text"
+                    placeholder="Quantos metros quadrados possui o seu imóvel? "
+                    required
+                  />
                 </div>
                 <div className="field">
-                  <label htmlFor="cf-tipo">Tipo de projeto</label>
+                  <label htmlFor="cf-tipo">Tipo de imóvel</label>
                   <select id="cf-tipo" name="tipo">
-                    <option value="residencial">Residencial completo</option>
-                    <option value="consultoria">Consultoria à distância</option>
-                    <option value="reforma">Retrofit / reforma</option>
-                    <option value="outro">Ainda não sei</option>
+                    <option value="apartamento-padrão">
+                      Apartamento Padrão
+                    </option>
+                    <option value="apartamento-garden">
+                      Apartamento Garden
+                    </option>
+                    <option value="apartamento-duplex">
+                      Apartamento Duplex
+                    </option>
+                    <option value="casa-terrea">Casa térrea</option>
+                    <option value="sobrado">Sobrado</option>
                   </select>
                 </div>
               </div>
@@ -63,13 +90,25 @@ export default function Contato() {
                   id="cf-msg"
                   name="mensagem"
                   rows={3}
-                  placeholder="Conta um pouco — quem mora, o que sonha, prazo..."
+                  placeholder="Conta um pouco - o que sonha, se já está com as chaves, quem mora com você…"
                 />
               </div>
               <button type="submit">
                 Enviar mensagem
-                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
-                  <path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                <svg
+                  width="14"
+                  height="10"
+                  viewBox="0 0 14 10"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M0 5h12M8 1l4 4-4 4"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </button>
             </form>
@@ -77,33 +116,38 @@ export default function Contato() {
 
           <div className="contact-info">
             <p className="lede">
-              Atendo até quatro projetos por trimestre. Me conta a sua
-              história — respondo em até dois dias úteis.
+              Me mande uma mensagem e logo entrarei em contato com você! Será um
+              prazer te ouvir e ajudar a realizar esse sonho!
             </p>
 
             <div className="row">
               <div>
                 <b>Estúdio</b>
                 <p>
-                  R. das Hortênsias, 128
+                  Rua Maria Monteiro, 1791
                   <br />
                   Cambuí · Campinas, SP
                 </p>
               </div>
               <div>
                 <b>Por escrito</b>
-                <p>ola@leticiamoraes.arq.br</p>
-              </div>
-              <div>
-                <b>Por voz</b>
-                <p>+55 19 99876 4321</p>
+                <p>projeto@leticiamoraes.arq.br</p>
               </div>
             </div>
 
             <div className="socials">
-              <a href="#" aria-label="Instagram">Instagram</a>
-              <a href="#" aria-label="Pinterest">Pinterest</a>
-              <a href="#" aria-label="WhatsApp">WhatsApp</a>
+              <a
+                href="https://www.instagram.com/leticiamoraes.arquiteta/"
+                aria-label="Instagram"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://api.whatsapp.com/send/?phone=19981037808&text&type=phone_number&app_absent=0"
+                aria-label="WhatsApp"
+              >
+                WhatsApp
+              </a>
             </div>
           </div>
         </div>

@@ -588,7 +588,6 @@ section {
 }
 .servico-card .servico-mark {
   width: 44px; height: 44px;
-  background: url("/assets/simbolo-verde.png") center/contain no-repeat;
   flex-shrink: 0;
 }
 .servico-card h3 {
@@ -632,7 +631,6 @@ section {
   transform: translateY(-2px);
 }
 .servico-card.featured {
-  background-image: url("/assets/estampa-verde-medio.png");
   background-size: cover;
   background-position: center;
   border: 0;

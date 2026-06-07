@@ -30,7 +30,7 @@ const PROJETOS: Projeto[] = [
   {
     type: "residencial",
     title: "Lillan & Paulo",
-    loc: "Campinas, SP",
+    loc: "Paulínia, SP",
     year: "2024",
     area: "110 m²",
     typeLabel: "Residencial · Reforma completa",
@@ -41,7 +41,7 @@ const PROJETOS: Projeto[] = [
   {
     type: "residencial",
     title: "Marina Colin",
-    loc: "Valinhos, SP",
+    loc: "Campinas, SP",
     year: "2024",
     area: "98 m²",
     typeLabel: "Residencial · Projeto completo",
@@ -52,7 +52,7 @@ const PROJETOS: Projeto[] = [
   {
     type: "residencial",
     title: "Pamella & Gésner",
-    loc: "Campinas, SP",
+    loc: "Santa Bárbara, SP",
     year: "2023",
     area: "74 m²",
     typeLabel: "Residencial · Cozinha autoral",
@@ -63,7 +63,7 @@ const PROJETOS: Projeto[] = [
   {
     type: "consultoria",
     title: "Larissa & Felipe",
-    loc: "Hortolândia, SP",
+    loc: "Campinas, SP",
     year: "2024",
     area: "42 m²",
     typeLabel: "Consultoria à distância",
@@ -85,7 +85,7 @@ const PROJETOS: Projeto[] = [
   {
     type: "residencial",
     title: "Murilo & Giuliana",
-    loc: "Vinhedo, SP",
+    loc: "Campinas, SP",
     year: "2024",
     area: "82 m²",
     typeLabel: "Residencial · Living & jantar",
@@ -96,7 +96,7 @@ const PROJETOS: Projeto[] = [
   {
     type: "consultoria",
     title: "Thaís & Leonardo",
-    loc: "São Paulo, SP",
+    loc: "Campinas, SP",
     year: "2024",
     area: "58 m²",
     typeLabel: "Consultoria + marcenaria",
@@ -159,17 +159,7 @@ export default function Projetos() {
                 <em>recentes &amp; favoritos.</em>
               </h2>
             </div>
-            <div className="proj-filter">
-              {(["todos", "residencial", "consultoria"] as const).map((f) => (
-                <button
-                  key={f}
-                  className={filter === f ? "active" : ""}
-                  onClick={() => setFilter(f)}
-                >
-                  {f.charAt(0).toUpperCase() + f.slice(1)}
-                </button>
-              ))}
-            </div>
+            
           </div>
 
           <div className="proj-list" data-layout="masonry" ref={listRef}>
@@ -197,7 +187,7 @@ export default function Projetos() {
                 <div className="meta">
                   <h3 className="title">{p.title}</h3>
                   <span className="loc">
-                    {p.loc.split(",")[0]} · {p.year}
+                    {p.loc.split(",")[0]}
                   </span>
                 </div>
                 <p className="description">{p.desc.split(".")[0]}.</p>

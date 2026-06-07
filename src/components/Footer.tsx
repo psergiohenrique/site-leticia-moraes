@@ -12,7 +12,7 @@ export default function Footer() {
             height={88}
           />
         </div>
-        <div>© 2026 · feito com cuidado em Campinas</div>
+        <div>© 2026 · feito com Amor em Campinas</div>
       </div>
     </footer>
   );
