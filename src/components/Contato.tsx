@@ -3,11 +3,50 @@
 import { useState } from "react";
 import RevealWrapper from "./RevealWrapper";
 
+const WHATSAPP_NUMBER = "5519981037808";
+
 export default function Contato() {
   const [sent, setSent] = useState(false);
+  const [fields, setFields] = useState({
+    nome: "",
+    cidade: "",
+    metragem: "",
+    tipo: "apartamento-padrão",
+    mensagem: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
+    setFields((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const tipoLabel: Record<string, string> = {
+      "apartamento-padrão": "Apartamento Padrão",
+      "apartamento-garden": "Apartamento Garden",
+      "apartamento-duplex": "Apartamento Duplex",
+      "casa-terrea": "Casa Térrea",
+      sobrado: "Sobrado",
+    };
+
+    const msg = [
+      `Olá Letícia! Me chamo *${fields.nome}* e gostaria de conversar sobre um projeto.`,
+      ``,
+      `📍 *Cidade:* ${fields.cidade || "—"}`,
+      `🏠 *Tipo:* ${tipoLabel[fields.tipo] ?? fields.tipo}`,
+      `📐 *Metragem:* ${fields.metragem || "—"}`,
+      fields.mensagem ? `\n💬 *Sobre o projeto:*\n${fields.mensagem}` : "",
+    ]
+      .join("\n")
+      .trim();
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
     setSent(true);
   };
 
@@ -29,8 +68,8 @@ export default function Contato() {
               <div className="leaf-icon" />
               <b>obrigada!</b>
               <p>
-                Sua mensagem chegou. Te respondo em até dois dias úteis — fica
-                de olho no e-mail.
+                O WhatsApp foi aberto com sua mensagem pronta — é só enviar!
+                Logo entrarei em contato.
               </p>
             </div>
           ) : (
@@ -44,6 +83,8 @@ export default function Contato() {
                     type="text"
                     placeholder="Como posso te chamar"
                     required
+                    value={fields.nome}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="field">
@@ -53,6 +94,8 @@ export default function Contato() {
                     name="cidade"
                     type="text"
                     placeholder="Onde fica o projeto"
+                    value={fields.cidade}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -65,11 +108,13 @@ export default function Contato() {
                     type="text"
                     placeholder="Quantos metros quadrados possui o seu imóvel? "
                     required
+                    value={fields.metragem}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="field">
                   <label htmlFor="cf-tipo">Tipo de imóvel</label>
-                  <select id="cf-tipo" name="tipo">
+                  <select id="cf-tipo" name="tipo" value={fields.tipo} onChange={handleChange}>
                     <option value="apartamento-padrão">
                       Apartamento Padrão
                     </option>
@@ -91,6 +136,8 @@ export default function Contato() {
                   name="mensagem"
                   rows={3}
                   placeholder="Conta um pouco - o que sonha, se já está com as chaves, quem mora com você…"
+                  value={fields.mensagem}
+                  onChange={handleChange}
                 />
               </div>
               <button type="submit">
