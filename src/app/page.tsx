@@ -8,8 +8,6 @@ import Processo from "@/components/Processo";
 import Depoimentos from "@/components/Depoimentos";
 import Contato from "@/components/Contato";
 import Footer from "@/components/Footer";
-import Lightbox from "@/components/Lightbox";
-
 export default function Home() {
   return (
     <>
@@ -25,7 +23,6 @@ export default function Home() {
         <Contato />
       </main>
       <Footer />
-      <Lightbox />
     </>
   );
 }

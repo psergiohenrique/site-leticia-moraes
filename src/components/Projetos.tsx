@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 
 interface Projeto {
@@ -107,11 +107,7 @@ const PROJETOS: Projeto[] = [
 ];
 
 export default function Projetos() {
-  const [filter, setFilter] = useState<"todos" | "residencial" | "consultoria">("todos");
-  const [lightbox, setLightbox] = useState<Projeto | null>(null);
   const listRef = useRef<HTMLDivElement>(null);
-
-  const filtered = PROJETOS.filter((p) => filter === "todos" || p.type === filter);
 
   useEffect(() => {
     if (!listRef.current) return;
@@ -128,110 +124,51 @@ export default function Projetos() {
     );
     listRef.current.querySelectorAll(".proj-card").forEach((el) => obs.observe(el));
     return () => obs.disconnect();
-  }, [filter]);
-
-  useEffect(() => {
-    if (lightbox) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightbox(null);
-    };
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [lightbox]);
+  }, []);
 
   return (
-    <>
-      <section id="projetos">
-        <div className="wrap">
-          <div className="proj-head">
-            <div>
-              <p className="eyebrow">03 · Portfólio</p>
-              <h2>
-                Projetos
-                <br />
-                <em>recentes &amp; favoritos.</em>
-              </h2>
-            </div>
-            
-          </div>
-
-          <div className="proj-list" data-layout="masonry" ref={listRef}>
-            {filtered.map((p) => (
-              <article
-                key={p.title}
-                className="proj-card reveal"
-                data-type={p.type}
-                onClick={() => setLightbox(p)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => e.key === "Enter" && setLightbox(p)}
-              >
-                <span className="tag">{p.type === "residencial" ? "Residencial" : "Consultoria"}</span>
-                <div className="img-wrap">
-                  <Image
-                    src={p.img}
-                    alt={p.alt}
-                    fill
-                    sizes="(max-width: 600px) 100vw, (max-width: 980px) 50vw, 33vw"
-                    style={{ objectFit: "cover" }}
-                    loading="lazy"
-                  />
-                </div>
-                <div className="meta">
-                  <h3 className="title">{p.title}</h3>
-                  <span className="loc">
-                    {p.loc.split(",")[0]}
-                  </span>
-                </div>
-                <p className="description">{p.desc.split(".")[0]}.</p>
-                <span className="arrow">Ver projeto →</span>
-              </article>
-            ))}
+    <section id="projetos">
+      <div className="wrap">
+        <div className="proj-head">
+          <div>
+            <p className="eyebrow">03 · Portfólio</p>
+            <h2>
+              Projetos
+              <br />
+              <em>recentes &amp; favoritos.</em>
+            </h2>
           </div>
         </div>
-      </section>
 
-      {lightbox && (
-        <div
-          className="lightbox open"
-          role="dialog"
-          aria-modal="true"
-          onClick={(e) => e.target === e.currentTarget && setLightbox(null)}
-        >
-          <button className="lightbox-close" onClick={() => setLightbox(null)} aria-label="Fechar">
-            ✕
-          </button>
-          <div className="lightbox-inner">
-            <div className="lightbox-img">
-              <Image
-                src={lightbox.img}
-                alt={lightbox.alt}
-                fill
-                sizes="60vw"
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-            <div className="lightbox-info">
-              <p className="eyebrow">{lightbox.typeLabel}</p>
-              <h3>{lightbox.title}</h3>
-              <p>{lightbox.desc}</p>
-              <div className="specs">
-                <div><b>Local</b><span>{lightbox.loc}</span></div>
-                <div><b>Ano</b><span>{lightbox.year}</span></div>
-                <div><b>Área</b><span>{lightbox.area}</span></div>
-                <div><b>Status</b><span>entregue</span></div>
+        <div className="proj-list" data-layout="masonry" ref={listRef}>
+          {PROJETOS.map((p) => (
+            <article
+              key={p.title}
+              className="proj-card reveal"
+              data-type={p.type}
+            >
+              <span className="tag">{p.type === "residencial" ? "Residencial" : "Consultoria"}</span>
+              <div className="img-wrap">
+                <Image
+                  src={p.img}
+                  alt={p.alt}
+                  fill
+                  sizes="(max-width: 600px) 100vw, (max-width: 980px) 50vw, 33vw"
+                  style={{ objectFit: "cover" }}
+                  loading="lazy"
+                />
               </div>
-            </div>
-          </div>
+              <div className="meta">
+                <h3 className="title">{p.title}</h3>
+                <span className="loc">
+                  {p.loc.split(",")[0]}
+                </span>
+              </div>
+              <p className="description">{p.desc.split(".")[0]}.</p>
+            </article>
+          ))}
         </div>
-      )}
-    </>
+      </div>
+    </section>
   );
 }

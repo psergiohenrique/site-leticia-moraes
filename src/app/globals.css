@@ -865,7 +865,7 @@ section {
 }
 .proc-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: clamp(28px, 3vw, 48px);
   position: relative;
 }
