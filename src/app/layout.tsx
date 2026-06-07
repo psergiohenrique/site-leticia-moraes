@@ -80,7 +80,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${dmSerifDisplay.variable} ${manrope.variable}`}>
       <head>
-        <link rel="icon" type="image/png" href="/assets/simbolo-verde.png" />
+        <link rel="icon" type="image/png" href="/assets/submark-com-fundo.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
