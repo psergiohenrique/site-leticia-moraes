@@ -80,9 +80,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${dmSerifDisplay.variable} ${manrope.variable}`}>
+    <html
+      lang="pt-BR"
+      className={`${dmSerifDisplay.variable} ${manrope.variable}`}
+    >
       <head>
-        <link rel="icon" type="image/png" href="/assets/submark-com-fundo.png" />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/assets/submark-com-fundo.png"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -98,7 +105,8 @@ export default function RootLayout({
                   url: "https://leticiamoraes.arq.br",
                   telephone: "+55-19-98103-7808",
                   email: "projeto@leticiamoraes.arq.br",
-                  image: "https://leticiamoraes.arq.br/assets/submark-com-fundo.png",
+                  image:
+                    "https://leticiamoraes.arq.br/assets/submark-com-fundo.png",
                   logo: "https://leticiamoraes.arq.br/assets/logo-horizontal-verde.png",
                   address: {
                     "@type": "PostalAddress",
@@ -115,7 +123,13 @@ export default function RootLayout({
                   },
                   openingHoursSpecification: {
                     "@type": "OpeningHoursSpecification",
-                    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    dayOfWeek: [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                    ],
                     opens: "09:00",
                     closes: "18:00",
                   },
@@ -164,21 +178,27 @@ export default function RootLayout({
                       author: { "@type": "Person", name: "Larissa & Felipe" },
                       reviewBody:
                         "Obrigada por todo apoio, Le!! Você está sendo impecável no nosso acompanhamento, mesmo a distância! Fazer nosso projeto com você foi uma decisão acertada. O projeto executivo trouxe muita precisão para os prestadores e também para os ajustes que precisamos fazer. Só agradecer!",
-                      itemReviewed: { "@id": "https://leticiamoraes.arq.br/#business" },
+                      itemReviewed: {
+                        "@id": "https://leticiamoraes.arq.br/#business",
+                      },
                     },
                     {
                       "@type": "Review",
                       author: { "@type": "Person", name: "Luana & Daniel" },
                       reviewBody:
                         "Estamos apaixonados pelo projeto. Ele superou as expectativas e isso só foi possível graças ao seu cuidado, dedicação e olhar profissional. De verdade, muito obrigada por tornar essa etapa tão leve e especial.",
-                      itemReviewed: { "@id": "https://leticiamoraes.arq.br/#business" },
+                      itemReviewed: {
+                        "@id": "https://leticiamoraes.arq.br/#business",
+                      },
                     },
                     {
                       "@type": "Review",
                       author: { "@type": "Person", name: "Thaís & Leonardo" },
                       reviewBody:
                         "Obrigado por toda ajuda, com todas as entregas e paciência ao longo do projeto. Com o material que nos forneceu a obra está caminhando sozinha e está tudo ficando do jeito que sonhamos!",
-                      itemReviewed: { "@id": "https://leticiamoraes.arq.br/#business" },
+                      itemReviewed: {
+                        "@id": "https://leticiamoraes.arq.br/#business",
+                      },
                     },
                   ],
                 },
@@ -210,13 +230,19 @@ export default function RootLayout({
                   name: "Letícia Moraes Studio",
                   description:
                     "Site oficial do estúdio de design de interiores Letícia Moraes, em Campinas, SP.",
-                  publisher: { "@id": "https://leticiamoraes.arq.br/#business" },
+                  publisher: {
+                    "@id": "https://leticiamoraes.arq.br/#business",
+                  },
                   inLanguage: "pt-BR",
                 },
               ],
             }),
           }}
         />
+        <script
+          src="https://t.contentsquare.net/uxa/6598ec2a87efc.js"
+          defer
+        ></script>
       </head>
       <body>
         <ThemeProvider>{children}</ThemeProvider>
