@@ -1,7 +1,20 @@
+"use client";
+
 import Script from "next/script";
+import posthog from "posthog-js";
+import { posthogLog } from "../lib/posthog-logs";
 import RevealWrapper from "./RevealWrapper";
 
 export default function Contato() {
+  const handleSocialContact = (channel: "instagram" | "whatsapp") => {
+    if (
+      process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN &&
+      process.env.NEXT_PUBLIC_POSTHOG_HOST
+    ) {
+      posthog.capture("social_contact_clicked", { channel });
+      posthogLog.info("social contact selected", { channel });
+    }
+  };
   return (
     <section id="contato" className="contato">
       <div className="wrap">
@@ -55,12 +68,14 @@ export default function Contato() {
               <a
                 href="https://www.instagram.com/leticiamoraes.arquiteta/"
                 aria-label="Instagram"
+                onClick={() => handleSocialContact("instagram")}
               >
                 Instagram
               </a>
               <a
                 href="https://api.whatsapp.com/send/?phone=19981037808&text&type=phone_number&app_absent=0"
                 aria-label="WhatsApp"
+                onClick={() => handleSocialContact("whatsapp")}
               >
                 WhatsApp
               </a>

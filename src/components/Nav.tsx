@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import posthog from "posthog-js";
+import { posthogLog } from "../lib/posthog-logs";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -48,6 +50,16 @@ export default function Nav() {
     } else {
       document.documentElement.removeAttribute("data-theme");
       localStorage.setItem("theme", "claro");
+    }
+  };
+
+  const captureContactCta = (placement: "navigation" | "mobile_navigation") => {
+    if (
+      process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN &&
+      process.env.NEXT_PUBLIC_POSTHOG_HOST
+    ) {
+      posthog.capture("contact_cta_clicked", { placement });
+      posthogLog.info("contact CTA selected", { placement });
     }
   };
 
@@ -101,7 +113,13 @@ export default function Nav() {
               </svg>
             )}
           </button>
-          <a href="#contato" className="nav-cta">Conversar</a>
+          <a
+            href="#contato"
+            className="nav-cta"
+            onClick={() => captureContactCta("navigation")}
+          >
+            Conversar
+          </a>
         </div>
         <button
           className={`nav-burger ${menuOpen ? "open" : ""}`}
@@ -120,7 +138,16 @@ export default function Nav() {
             {id.charAt(0).toUpperCase() + id.slice(1)}
           </a>
         ))}
-        <a href="#contato" className="cta" onClick={closeMenu}>Conversar</a>
+        <a
+          href="#contato"
+          className="cta"
+          onClick={() => {
+            captureContactCta("mobile_navigation");
+            closeMenu();
+          }}
+        >
+          Conversar
+        </a>
       </nav>
     </>
   );

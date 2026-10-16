@@ -1,6 +1,19 @@
+"use client";
+
 import Image from "next/image";
+import posthog from "posthog-js";
+import { posthogLog } from "../lib/posthog-logs";
 
 export default function Hero() {
+  const handleContactCta = () => {
+    if (
+      process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN &&
+      process.env.NEXT_PUBLIC_POSTHOG_HOST
+    ) {
+      posthog.capture("contact_cta_clicked", { placement: "hero" });
+      posthogLog.info("contact CTA selected", { placement: "hero" });
+    }
+  };
   return (
     <section className="hero" id="hero">
       <div className="wrap">
@@ -23,7 +36,11 @@ export default function Hero() {
             </p>
 
             <div className="hero-cta-row">
-              <a href="#contato" className="btn btn-primary">
+              <a
+                href="#contato"
+                className="btn btn-primary"
+                onClick={handleContactCta}
+              >
                 Começar um projeto
                 <svg
                   width="14"
