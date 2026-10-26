@@ -88,7 +88,7 @@ export default function Nav() {
             ))}
           </ul>
         </nav>
-        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        <div className="nav-actions">
           <button
             className="theme-toggle"
             onClick={toggleTheme}

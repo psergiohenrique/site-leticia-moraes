@@ -16,6 +16,10 @@
   --rule:       color-mix(in srgb, #4d461a 22%, transparent);
   --rule-soft:  color-mix(in srgb, #4d461a 10%, transparent);
 
+  /* submark giratória: cor contrária ao fundo de cada tema */
+  --submark:         url("/assets/submark-positiva.png"); /* verde-oliva */
+  --submark-inverse: url("/assets/submark-verde.png");    /* creme */
+
   --f-display: var(--font-dm-serif), 'Cormorant Garamond', Georgia, serif;
   --f-body:    var(--font-manrope), system-ui, -apple-system, sans-serif;
 
@@ -34,6 +38,9 @@
   --rose:       #d1a58a;
   --rule:       color-mix(in srgb, #f7f7e6 22%, transparent);
   --rule-soft:  color-mix(in srgb, #f7f7e6 10%, transparent);
+
+  --submark:         url("/assets/submark-verde.png");
+  --submark-inverse: url("/assets/submark-positiva.png");
 }
 
 * { box-sizing: border-box; }
@@ -204,6 +211,12 @@ section {
 }
 .nav-cta:hover { background: var(--ink); color: var(--paper); }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 /* Theme toggle button */
 .theme-toggle {
   display: flex;
@@ -296,6 +309,9 @@ section {
 }
 
 @media (max-width: 820px) {
+  .nav { justify-content: flex-start; gap: 12px; }
+  .nav-actions { margin-left: auto; }
+  .theme-toggle { width: 44px; height: 44px; }
   .nav-links { display: none; }
   .nav-cta { display: none; }
   .nav-burger { display: inline-flex; }
@@ -313,7 +329,7 @@ section {
   position: absolute;
   top: -160px; right: -200px;
   width: 620px; height: 620px;
-  background-image: url("/assets/submark-verde.png");
+  background-image: var(--submark);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -502,7 +518,7 @@ section {
   position: absolute;
   bottom: -36px; right: -36px;
   width: 160px; height: 160px;
-  background: url("/assets/submark-verde.png") center/contain no-repeat;
+  background: var(--submark) center/contain no-repeat;
   pointer-events: none;
   animation: slow-spin 60s linear infinite;
 }
@@ -858,7 +874,7 @@ section {
   position: absolute;
   top: 60px; right: -160px;
   width: 460px; height: 460px;
-  background: url("/assets/submark-verde.png") center/contain no-repeat;
+  background: var(--submark) center/contain no-repeat;
   opacity: 0.07;
   pointer-events: none;
   animation: slow-spin 80s linear infinite reverse;
@@ -990,7 +1006,7 @@ section {
   position: absolute;
   top: -160px; left: -160px;
   width: 540px; height: 540px;
-  background: url("/assets/submark-positiva.png") center/contain no-repeat;
+  background: var(--submark-inverse) center/contain no-repeat;
   opacity: 0.13;
   pointer-events: none;
   animation: slow-spin 90s linear infinite;
