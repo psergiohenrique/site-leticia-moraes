@@ -3,8 +3,8 @@ import Image from "next/image";
 const ITEMS = [
   "interiores que respiram",
   "design biofílico",
-  "desde 2018",
-  "campinas · sp",
+  "5 anos de estúdio",
+  "maringá e londrina",
 ];
 
 export default function SubmarkStrip() {

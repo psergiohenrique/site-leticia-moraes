@@ -56,7 +56,11 @@ export default function Contato() {
               </div>
               <div>
                 <b>Por escrito</b>
-                <p>projeto@leticiamoraes.arq.br</p>
+                <p>
+                  <a href="mailto:projeto@leticiamoraes.arq.br">
+                    projeto@leticiamoraes.arq.br
+                  </a>
+                </p>
               </div>
             </div>
 

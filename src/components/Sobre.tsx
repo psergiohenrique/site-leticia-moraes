@@ -9,7 +9,7 @@ export default function Sobre() {
           <RevealWrapper className="about-portrait">
             <Image
               src="/assets/leticia.jpg"
-              alt="Letícia Moraes, arquiteta e designer de interiores biofílico em Campinas, SP"
+              alt="Letícia Moraes, arquiteta e designer de interiores biofílico em Maringá e Londrina, PR"
               fill
               sizes="(max-width: 820px) 100vw, 40vw"
               style={{ objectFit: "cover" }}

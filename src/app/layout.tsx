@@ -5,6 +5,7 @@ import ThemeProvider from "@/components/ThemeProvider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
+import AdsConversions from "@/components/AdsConversions";
 
 const dmSerifDisplay = DM_Serif_Display({
   weight: ["400"],
@@ -22,20 +23,22 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Letícia Moraes — Design de Interiores · Campinas, SP",
+  title: "Letícia Moraes — Arquitetura e Interiores · Maringá e Londrina, PR",
   description:
-    "Letícia Moraes, arquiteta especializada em design de interiores biofílico. Projetos residenciais completos e consultorias em Campinas, SP e região. Interiores que respiram.",
+    "Letícia Moraes, arquiteta especializada em interiores biofílicos. Projetos residenciais completos e consultorias em Maringá e Londrina, PR. Interiores que respiram.",
   keywords: [
-    "design de interiores Campinas",
-    "arquiteta de interiores Campinas SP",
+    "arquitetura e interiores Maringá",
+    "arquitetura e interiores Londrina",
+    "arquiteta Maringá PR",
+    "arquiteta Londrina PR",
     "design biofílico",
     "projeto de interiores residencial",
     "consultoria de interiores online",
     "Letícia Moraes arquiteta",
     "decoração biofílica",
     "psicoarquitetura",
-    "projeto residencial Campinas",
-    "reforma apartamento Campinas",
+    "projeto residencial Maringá",
+    "projeto residencial Londrina",
   ],
   authors: [{ name: "Letícia Moraes" }],
   creator: "Letícia Moraes",
@@ -51,15 +54,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     url: "https://leticiamoraes.arq.br",
-    title: "Letícia Moraes — Design de Interiores · Campinas, SP",
+    title: "Letícia Moraes — Arquitetura e Interiores · Maringá e Londrina, PR",
     description:
-      "Projetos residenciais com olhar biofílico — luz natural, materiais honestos e o ritmo de quem mora ali. Campinas, SP.",
+      "Projetos residenciais com olhar biofílico — luz natural, materiais honestos e o ritmo de quem mora ali. Maringá e Londrina, PR.",
     siteName: "Letícia Moraes Studio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Letícia Moraes — Design de Interiores · Campinas, SP",
-    description: "Projetos residenciais com olhar biofílico em Campinas, SP e região.",
+    title: "Letícia Moraes — Arquitetura e Interiores · Maringá e Londrina, PR",
+    description:
+      "Projetos residenciais com olhar biofílico em Maringá e Londrina, PR.",
   },
   robots: {
     index: true,
@@ -101,7 +105,7 @@ export default function RootLayout({
                   "@id": "https://leticiamoraes.arq.br/#business",
                   name: "Letícia Moraes Studio",
                   description:
-                    "Design de interiores residencial com olhar biofílico. Projetos completos e consultorias em Campinas, SP e região.",
+                    "Arquitetura e interiores residenciais com olhar biofílico. Projetos completos e consultorias em Maringá e Londrina, PR.",
                   url: "https://leticiamoraes.arq.br",
                   telephone: "+55-19-98103-7808",
                   email: "projeto@leticiamoraes.arq.br",
@@ -133,12 +137,15 @@ export default function RootLayout({
                   areaServed: [
                     {
                       "@type": "City",
-                      name: "Campinas",
-                      "@id": "https://www.wikidata.org/wiki/Q25307",
+                      name: "Maringá",
+                    },
+                    {
+                      "@type": "City",
+                      name: "Londrina",
                     },
                     {
                       "@type": "State",
-                      name: "São Paulo",
+                      name: "Paraná",
                     },
                   ],
                   hasOfferCatalog: {
@@ -201,7 +208,7 @@ export default function RootLayout({
                   name: "Letícia Moraes",
                   jobTitle: "Arquiteta e Designer de Interiores",
                   description:
-                    "Arquiteta especializada em design de interiores biofílico. Atua em Campinas, SP, desenvolvendo projetos residenciais que equilibram funcionalidade, bem-estar e conexão com a natureza.",
+                    "Arquiteta especializada em interiores biofílicos. Atua em Maringá e Londrina, PR, desenvolvendo projetos residenciais que equilibram funcionalidade, bem-estar e conexão com a natureza.",
                   url: "https://leticiamoraes.arq.br",
                   image: "https://leticiamoraes.arq.br/assets/leticia.jpg",
                   sameAs: [
@@ -222,7 +229,7 @@ export default function RootLayout({
                   url: "https://leticiamoraes.arq.br",
                   name: "Letícia Moraes Studio",
                   description:
-                    "Site oficial do estúdio de design de interiores Letícia Moraes, em Campinas, SP.",
+                    "Site oficial do estúdio de arquitetura e interiores Letícia Moraes, em Maringá e Londrina, PR.",
                   publisher: {
                     "@id": "https://leticiamoraes.arq.br/#business",
                   },
@@ -239,6 +246,7 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>{children}</ThemeProvider>
+        <AdsConversions />
         <Analytics />
         <SpeedInsights />
         <Script

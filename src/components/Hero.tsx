@@ -20,7 +20,7 @@ export default function Hero() {
         <div className="hero-grid">
           <div className="hero-copy">
             <p className="eyebrow" style={{ marginBottom: "32px" }}>
-              Estúdio · Campinas, SP · desde 2018
+              Arquitetura e Interiores · Maringá e Londrina, PR
             </p>
 
             <h1>

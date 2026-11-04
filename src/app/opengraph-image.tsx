@@ -5,7 +5,7 @@ import path from "node:path";
 export const runtime = "nodejs";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Letícia Moraes — Design de Interiores · Campinas, SP";
+export const alt = "Letícia Moraes — Arquitetura e Interiores · Maringá e Londrina, PR";
 
 export default function Image() {
   const logoBuffer = fs.readFileSync(
