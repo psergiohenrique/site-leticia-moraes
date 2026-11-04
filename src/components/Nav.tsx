@@ -68,7 +68,7 @@ export default function Nav() {
   return (
     <>
       <header ref={navRef} className={`nav ${scrolled ? "scrolled" : ""}`} id="nav">
-        <a href="#hero" className="brand" aria-label="Letícia Moraes — Design de Interiores">
+        <a href="#hero" className="brand" aria-label="Letícia Moraes — Arquitetura e Interiores · Maringá e Londrina, PR">
           <Image
             className="logo-submark"
             src="/assets/submark-com-fundo.png"

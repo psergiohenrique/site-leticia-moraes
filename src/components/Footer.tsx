@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="footer-submark">
           <Image
             src="/assets/submark-positiva.png"
-            alt="Letícia Moraes — Design de Interiores"
+            alt="Letícia Moraes — Arquitetura e Interiores"
             width={88}
             height={88}
           />
