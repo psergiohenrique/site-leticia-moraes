@@ -1154,6 +1154,115 @@ section {
   font-weight: 400;
 }
 .form-sent p { margin: 0; color: var(--leaf); font-size: 14px; line-height: 1.6; }
+.form-sent .form-sent-whats {
+  margin-top: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: background .2s;
+}
+.form-sent .form-sent-whats:hover { background: var(--leaf); }
+
+/* Formulário em etapas */
+.step-form { gap: 20px; min-height: 380px; }
+.step-progress {
+  height: 2px;
+  background: color-mix(in srgb, var(--paper) 18%, transparent);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.step-progress span {
+  display: block;
+  height: 100%;
+  background: var(--leaf);
+  transition: width .35s ease;
+}
+.step-count {
+  margin: -8px 0 0;
+  font-size: 10.5px;
+  letter-spacing: 0.26em;
+  color: var(--leaf);
+}
+.step-form .step {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: step-in .35s ease;
+}
+@keyframes step-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+.step-form legend {
+  padding: 0;
+  font-family: var(--f-display);
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.3;
+  color: var(--paper);
+  margin-bottom: 4px;
+}
+.step-form legend .req { color: var(--leaf); }
+.step-desc { margin: -6px 0 0; color: var(--leaf); font-size: 14px; line-height: 1.5; }
+.step-form .field input,
+.step-form .field textarea { font-size: 18px; width: 100%; }
+.step-options { display: flex; flex-direction: column; gap: 10px; }
+.contact-form .step-options button {
+  align-self: stretch;
+  justify-content: flex-start;
+  text-align: left;
+  background: color-mix(in srgb, var(--paper) 6%, transparent);
+  color: var(--paper);
+  border: 1px solid color-mix(in srgb, var(--paper) 30%, transparent);
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-size: 15px;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 400;
+  gap: 12px;
+}
+.contact-form .step-options button:hover { background: color-mix(in srgb, var(--paper) 14%, transparent); }
+.contact-form .step-options button.selected {
+  background: var(--leaf);
+  border-color: var(--leaf);
+  color: var(--ink);
+}
+.step-options .key {
+  display: inline-grid;
+  place-items: center;
+  width: 22px; height: 22px;
+  flex: none;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  font-size: 11px;
+  opacity: .8;
+}
+.step-error { margin: 0; color: #f2b8a2; font-size: 14px; }
+.step-actions { display: flex; gap: 12px; align-items: center; margin-top: auto; }
+.contact-form .step-actions .step-back {
+  background: transparent;
+  color: var(--paper);
+  border: 1px solid color-mix(in srgb, var(--paper) 30%, transparent);
+}
+.contact-form .step-actions .step-back:hover { background: color-mix(in srgb, var(--paper) 14%, transparent); }
+.contact-form button:disabled { opacity: .6; cursor: wait; }
+.hp-field {
+  position: absolute;
+  left: -10000px;
+  width: 1px; height: 1px;
+  opacity: 0;
+}
 
 @media (max-width: 820px) {
   .contact-grid { grid-template-columns: 1fr; }

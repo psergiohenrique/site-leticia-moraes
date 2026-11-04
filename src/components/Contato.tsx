@@ -1,8 +1,8 @@
 "use client";
 
-import Script from "next/script";
 import posthog from "posthog-js";
 import { posthogLog } from "../lib/posthog-logs";
+import ContactForm from "./ContactForm";
 import RevealWrapper from "./RevealWrapper";
 
 export default function Contato() {
@@ -29,18 +29,7 @@ export default function Contato() {
 
         <div className="contact-grid">
           <div className="contact-embed">
-            <div
-              data-respondi-container=""
-              data-respondi-mode="regular"
-              data-respondi-src="https://form.respondi.app/aduH82KS"
-              data-respondi-width="100%"
-              data-respondi-height="600px"
-            />
-            <Script
-              id="respondi_src"
-              src="https://embed.respondi.app/embed.js"
-              strategy="afterInteractive"
-            />
+            <ContactForm />
           </div>
 
           <div className="contact-info">
