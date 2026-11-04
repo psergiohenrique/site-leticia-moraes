@@ -110,16 +110,9 @@ export default function RootLayout({
                   logo: "https://leticiamoraes.arq.br/assets/logo-horizontal-verde.png",
                   address: {
                     "@type": "PostalAddress",
-                    streetAddress: "Rua Maria Monteiro, 1791",
-                    addressLocality: "Campinas",
-                    addressRegion: "SP",
+                    addressLocality: "Maringá",
+                    addressRegion: "PR",
                     addressCountry: "BR",
-                    description: "Bairro Cambuí",
-                  },
-                  geo: {
-                    "@type": "GeoCoordinates",
-                    latitude: -22.9056,
-                    longitude: -47.0608,
                   },
                   openingHoursSpecification: {
                     "@type": "OpeningHoursSpecification",

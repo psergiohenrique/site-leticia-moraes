@@ -52,11 +52,7 @@ export default function Contato() {
             <div className="row">
               <div>
                 <b>Estúdio</b>
-                <p>
-                  Rua Maria Monteiro, 1791
-                  <br />
-                  Cambuí · Campinas, SP
-                </p>
+                <p>Maringá - Paraná</p>
               </div>
               <div>
                 <b>Por escrito</b>
