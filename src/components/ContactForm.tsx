@@ -37,6 +37,56 @@ function trackConversion() {
   }
 }
 
+const STORAGE_KEY = "contato_response_id";
+
+/**
+ * Id da resposta no Linkbio: o mesmo em todas as etapas (e se a página recarregar,
+ * via sessionStorage), para o Linkbio atualizar a mesma linha em vez de criar outra.
+ */
+function getResponseId(ref: { current: string | null }) {
+  if (ref.current) return ref.current;
+  let id: string | null = null;
+  try {
+    id = window.sessionStorage.getItem(STORAGE_KEY);
+  } catch {}
+  if (!id) {
+    id = window.crypto.randomUUID();
+    try {
+      window.sessionStorage.setItem(STORAGE_KEY, id);
+    } catch {}
+  }
+  ref.current = id;
+  return id;
+}
+
+function clearResponseId(ref: { current: string | null }) {
+  ref.current = null;
+  try {
+    window.sessionStorage.removeItem(STORAGE_KEY);
+  } catch {}
+}
+
+/** Envia o que já foi respondido; falha em silêncio (não atrapalha quem está preenchendo). */
+function saveProgress(
+  ref: { current: string | null },
+  answers: ContactAnswers,
+  step: number,
+  website: string
+) {
+  void fetch("/api/contato/progresso", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    keepalive: true,
+    body: JSON.stringify({
+      responseId: getResponseId(ref),
+      answers,
+      step,
+      website,
+      pageUrl: window.location.href,
+    }),
+  }).catch(() => {});
+}
+
 function whatsappUrl(answers: ContactAnswers) {
   const msg = [
     `Olá Letícia! Me chamo *${answers.nome}* e acabei de enviar a solicitação de projeto pelo site.`,
@@ -71,6 +121,7 @@ export default function ContactForm() {
   const startedRef = useRef(false);
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);
   const mountedRef = useRef(false);
+  const responseIdRef = useRef<string | null>(null);
 
   const total = CONTACT_QUESTIONS.length;
   const question = CONTACT_QUESTIONS[step];
@@ -115,10 +166,16 @@ export default function ContactForm() {
       const res = await fetch("/api/contato", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ answers: finalAnswers, website: honeypot }),
+        body: JSON.stringify({
+          answers: finalAnswers,
+          website: honeypot,
+          responseId: getResponseId(responseIdRef),
+          pageUrl: window.location.href,
+        }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       trackConversion();
+      clearResponseId(responseIdRef);
       setStatus("sent");
     } catch {
       setStatus("idle");
@@ -138,6 +195,7 @@ export default function ContactForm() {
     if (isLast) {
       void submit({ ...answers, [question.id]: current });
     } else {
+      saveProgress(responseIdRef, { ...answers, [question.id]: current }, step + 1, honeypot);
       // Valor absoluto (não funcional) para que cliques duplos não pulem etapas.
       setStep(step + 1);
     }
@@ -326,6 +384,10 @@ export default function ContactForm() {
           <Arrow />
         </button>
       </div>
+      <p className="step-privacy">
+        Suas respostas são salvas a cada etapa, só para que eu possa retornar o
+        seu contato.
+      </p>
     </form>
   );
 }

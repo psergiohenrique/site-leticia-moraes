@@ -1257,6 +1257,12 @@ section {
 }
 .contact-form .step-actions .step-back:hover { background: color-mix(in srgb, var(--paper) 14%, transparent); }
 .contact-form button:disabled { opacity: .6; cursor: wait; }
+.step-privacy {
+  margin: -4px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--paper) 55%, transparent);
+}
 .hp-field {
   position: absolute;
   left: -10000px;

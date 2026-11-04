@@ -3,6 +3,7 @@ import {
   findInvalidAnswer,
   type ContactAnswers,
 } from "../../../lib/contact-form";
+import { isResponseId, sendToLinkbio } from "../../../lib/linkbio";
 
 const escapeHtml = (value: string) =>
   value
@@ -12,7 +13,12 @@ const escapeHtml = (value: string) =>
     .replace(/"/g, "&quot;");
 
 export async function POST(request: Request) {
-  let body: { answers?: unknown; website?: unknown };
+  let body: {
+    answers?: unknown;
+    website?: unknown;
+    responseId?: unknown;
+    pageUrl?: unknown;
+  };
   try {
     body = await request.json();
   } catch {
@@ -40,6 +46,30 @@ export async function POST(request: Request) {
     return Response.json({ error: "invalid_field", field: invalid }, { status: 422 });
   }
 
+  // E-mail e Linkbio em paralelo: se um dos dois gravar, o lead não se perde.
+  const responseId = isResponseId(body.responseId)
+    ? body.responseId
+    : crypto.randomUUID();
+  const pageUrl =
+    typeof body.pageUrl === "string" ? body.pageUrl.slice(0, 500) : undefined;
+  const [mailOk, linkbioOk] = await Promise.all([
+    sendMail(answers),
+    sendToLinkbio({
+      responseId,
+      status: "complete",
+      answers,
+      step: CONTACT_QUESTIONS.length,
+      pageUrl,
+    }),
+  ]);
+
+  if (!mailOk && !linkbioOk) {
+    return Response.json({ error: "send_failed" }, { status: 502 });
+  }
+  return Response.json({ ok: true });
+}
+
+async function sendMail(answers: ContactAnswers): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL ?? "projeto@leticiamoraes.arq.br";
   const from =
@@ -48,7 +78,7 @@ export async function POST(request: Request) {
 
   if (!apiKey) {
     console.error("[contato] RESEND_API_KEY não configurada");
-    return Response.json({ error: "not_configured" }, { status: 500 });
+    return false;
   }
 
   const rows = CONTACT_QUESTIONS.map((q) => ({
@@ -83,12 +113,14 @@ export async function POST(request: Request) {
       text,
       html,
     }),
+  }).catch((err) => {
+    console.error("[contato] Falha ao enviar e-mail", err);
+    return null;
   });
 
-  if (!res.ok) {
-    console.error("[contato] Falha ao enviar e-mail", res.status, await res.text());
-    return Response.json({ error: "send_failed" }, { status: 502 });
+  if (!res?.ok) {
+    if (res) console.error("[contato] Falha ao enviar e-mail", res.status, await res.text());
+    return false;
   }
-
-  return Response.json({ ok: true });
+  return true;
 }
