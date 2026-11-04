@@ -16,6 +16,8 @@ const NAV_TIMEOUT_MS = 2000;
 
 type ConversionParams = {
   send_to: string;
+  value: number;
+  currency: "BRL";
   event_callback?: () => void;
   event_timeout?: number;
 };
@@ -39,6 +41,8 @@ function sendConversion(action: AdsConversionAction, onSent?: () => void) {
 
   window.gtag("event", "conversion", {
     send_to: sendTo,
+    value: 1.0,
+    currency: "BRL",
     ...(onSent
       ? { event_callback: onSent, event_timeout: NAV_TIMEOUT_MS }
       : {}),
