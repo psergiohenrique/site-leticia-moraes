@@ -3,6 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import posthog from "posthog-js";
 import {
+  ADS_CONVERSION_SEND_TO,
+  isConfiguredSendTo,
+} from "../lib/ads-conversions";
+import {
   CONTACT_QUESTIONS,
   findInvalidAnswer,
   type ContactAnswers,
@@ -11,12 +15,6 @@ import { posthogLog } from "../lib/posthog-logs";
 
 const WHATSAPP_NUMBER = "5519981037808";
 
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-  }
-}
-
 const posthogEnabled = () =>
   Boolean(
     process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN &&
@@ -24,12 +22,14 @@ const posthogEnabled = () =>
   );
 
 function trackConversion() {
-  const sendTo = process.env.NEXT_PUBLIC_GADS_CONVERSION_SEND_TO;
-  if (sendTo && typeof window.gtag === "function") {
-    window.gtag("event", "conversion", { send_to: sendTo });
-  }
-  if (typeof window.gtag === "function") {
-    window.gtag("event", "generate_lead", { form: "contato" });
+  // Mesmo rótulo/valor usados por AdsConversions para a ação "form".
+  const sendTo = ADS_CONVERSION_SEND_TO.form;
+  if (isConfiguredSendTo(sendTo) && typeof window.gtag === "function") {
+    window.gtag("event", "conversion", {
+      send_to: sendTo,
+      value: 1.0,
+      currency: "BRL",
+    });
   }
   if (posthogEnabled()) {
     posthog.capture("contact_form_submitted");
