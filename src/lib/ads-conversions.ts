@@ -1,18 +1,14 @@
 /**
  * Google Ads conversion labels for AW-18221438067.
- *
- * Paste each label from Google Ads → Goals → Conversions → the conversion
- * action → Tag setup. Replace only the suffix after the slash, for example
- * `AW-18221438067/AbCdEfGhIj`. A value that still ends in `_LABEL` is a
- * placeholder and is never sent.
+ * A value that still ends in `_LABEL` is a placeholder and is never sent.
  */
 export const GOOGLE_ADS_ID = "AW-18221438067";
 
 export const ADS_CONVERSION_SEND_TO = {
-  whatsapp: `${GOOGLE_ADS_ID}/WHATSAPP_LABEL`,
-  instagram: `${GOOGLE_ADS_ID}/INSTAGRAM_LABEL`,
-  email: `${GOOGLE_ADS_ID}/EMAIL_LABEL`,
-  form: `${GOOGLE_ADS_ID}/FORM_LABEL`,
+  whatsapp: `${GOOGLE_ADS_ID}/8qnRCIbYjLIdEPOo1PBD`,
+  instagram: `${GOOGLE_ADS_ID}/QjAJCInYjLIdEPOo1PBD`,
+  email: `${GOOGLE_ADS_ID}/20D6CNCXlbIdEPOo1PBD`,
+  form: `${GOOGLE_ADS_ID}/sJFsCIPYjLIdEPOo1PBD`,
 } as const;
 
 export type AdsConversionAction = keyof typeof ADS_CONVERSION_SEND_TO;
