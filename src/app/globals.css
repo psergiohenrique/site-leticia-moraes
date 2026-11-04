@@ -1263,6 +1263,17 @@ section {
   line-height: 1.5;
   color: color-mix(in srgb, var(--paper) 55%, transparent);
 }
+.step-made-with {
+  align-self: flex-start;
+  margin-top: -12px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, var(--paper) 45%, transparent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color .2s;
+}
+.step-made-with:hover { color: var(--leaf); }
 .hp-field {
   position: absolute;
   left: -10000px;
